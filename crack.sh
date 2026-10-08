@@ -35,20 +35,20 @@ echo ""
 case $pilihan in
     1)
         echo "[*] Memulai Mode Wordlist..."
-        # TODO: Sisipkan perintah operasionalmu di sini (contoh: perintah -bendera target aryacrack)
+        hashcat -m 22000 target aryacrack
         ;;
     2)
         echo "[*] Memulai Mode 8 Karakter Angka..."
-        # TODO: Sisipkan perintah operasionalmu di sini (contoh: perintah -bendera target ?d?d?d?d?d?d?d?d)
+        hashcat -m 22000 -a 3 target ?d?d?d?d?d?d?d?d
         ;;
     3)
         echo "[*] Memulai Eksekusi Ganda..."
         
         echo "--> Menjalankan Mode Wordlist terlebih dahulu..."
-        # TODO: Sisipkan perintah tahap 1 di sini
+        hashcat -m 22000 target aryacrack
         
         echo "--> Menjalankan Mode 8 Karakter Angka..."
-        # TODO: Sisipkan perintah tahap 2 di sini
+        hashcat -m 22000 -a 3 target ?d?d?d?d?d?d?d?d
         ;;
     *)
         echo "[!] Pilihan tidak dikenali. Skrip dibatalkan."
@@ -65,7 +65,7 @@ echo "[*] PROSES SELESAI. MENAMPILKAN HASIL DITEMUKAN:"
 echo "[*] =============================================="
 echo ""
 
-# TODO: Sisipkan perintah untuk menampilkan hasil di sini (contoh: perintah -bendera target --show)
+hashcat -m 22000 target --show
 
 echo ""
 echo "[*] Skrip otomasi telah selesai sepenuhnya."
