@@ -26,5 +26,5 @@ echo "[*] PROSES SELESAI. MENAMPILKAN HASIL DITEMUKAN:"
 echo "[*] =============================================="
 echo ""
 
-hashcat -m 22000 target --show | awk -F: '{print NR " " $2 " = " $3}'
+hashcat -m 22000 target --show | awk -F: '{print NR " " $4 " = " $5}'
 
