@@ -13,36 +13,12 @@ echo ""
 echo "[*] Data berhasil disimpan ke dalam file 'target'."
 echo ""
 
-echo "Pilih mode operasi yang ingin dijalankan:"
-echo "1. Menggunakan Wordlist (aryacrack)"
-echo "2. Menggunakan 8 Karakter Angka (?d?d?d?d?d?d?d?d)"
-echo "3. Jalankan Keduanya secara berurutan"
-read -p "Masukkan pilihan (1/2/3): " pilihan
-echo ""
+echo "[*] Memulai Eksekusi Ganda..."
+echo "--> Menjalankan Mode Wordlist terlebih dahulu..."
+hashcat -m 22000 target aryacrack
 
-case $pilihan in
-    1)
-        echo "[*] Memulai Mode Wordlist..."
-        hashcat -m 22000 target aryacrack
-        ;;
-    2)
-        echo "[*] Memulai Mode 8 Karakter Angka..."
-        hashcat -m 22000 -a 3 target ?d?d?d?d?d?d?d?d
-        ;;
-    3)
-        echo "[*] Memulai Eksekusi Ganda..."
-        
-        echo "--> Menjalankan Mode Wordlist terlebih dahulu..."
-        hashcat -m 22000 target aryacrack
-        
-        echo "--> Menjalankan Mode 8 Karakter Angka..."
-        hashcat -m 22000 -a 3 target ?d?d?d?d?d?d?d?d
-        ;;
-    *)
-        echo "[!] Pilihan tidak dikenali. Skrip dibatalkan."
-        exit 1
-        ;;
-esac
+echo "--> Menjalankan Mode 8 Karakter Angka..."
+hashcat -m 22000 -a 3 target ?d?d?d?d?d?d?d?d
 
 echo ""
 echo "[*] =============================================="
