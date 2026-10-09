@@ -26,7 +26,5 @@ echo "[*] PROSES SELESAI. MENAMPILKAN HASIL DITEMUKAN:"
 echo "[*] =============================================="
 echo ""
 
-hashcat -m 22000 target --show
+hashcat -m 22000 target --show | awk -F: '{print NR " " $2 " = " $3}'
 
-echo ""
-echo "[*] Skrip otomasi telah selesai sepenuhnya."
