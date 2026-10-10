@@ -13,10 +13,11 @@ echo ""
 echo "[*] Data berhasil disimpan ke dalam file 'target'."
 echo ""
 
-echo "[*] Menjalankan Wordlist & Brute Force secara paralel..."
-hashcat -m 22000 target aryacrack --potfile-path hasil.potfile --logfile-disable &
-hashcat -m 22000 -a 3 target ?d?d?d?d?d?d?d?d --potfile-path hasil.potfile --logfile-disable &
-wait
+echo "[*] Menjalankan Mode Wordlist..."
+hashcat -m 22000 target aryacrack
+
+echo "[*] Menjalankan Mode Brute Force..."
+hashcat -m 22000 -a 3 target ?d?d?d?d?d?d?d?d
 
 echo ""
 echo "[*] =============================================="
