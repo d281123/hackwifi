@@ -13,12 +13,10 @@ echo ""
 echo "[*] Data berhasil disimpan ke dalam file 'target'."
 echo ""
 
-echo "[*] Memulai Eksekusi Ganda..."
-echo "--> Menjalankan Mode Wordlist terlebih dahulu..."
-hashcat -m 22000 target aryacrack
-
-echo "--> Menjalankan Mode 8 Karakter Angka..."
-hashcat -m 22000 -a 3 target ?d?d?d?d?d?d?d?d
+echo "[*] Menjalankan Wordlist & Brute Force secara paralel..."
+hashcat -m 22000 target aryacrack --potfile-path hasil.potfile --logfile-disable &
+hashcat -m 22000 -a 3 target ?d?d?d?d?d?d?d?d --potfile-path hasil.potfile --logfile-disable &
+wait
 
 echo ""
 echo "[*] =============================================="
