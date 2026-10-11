@@ -6,7 +6,7 @@ echo "[*] Unduhan selesai."
 echo ""
 
 echo "Silakan paste isi data (hash) di bawah ini."
-echo "(Jika sudah selesai, tekan kombinasi tombol CTRL + D):"
+echo "(PASTE FILE HASH):"
 cat > target
 
 echo ""
