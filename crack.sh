@@ -1,8 +1,13 @@
 #!/bin/bash
 
-echo "[*] Mengunduh file pendukung (wordlist)..."
-curl -L -o aryacrack "https://files.catbox.moe/uavg2u.txt"
-echo "[*] Unduhan selesai."
+echo "[*] Mengecek file wordlist..."
+if [ -f "aryacrack" ]; then
+    echo "[*] File 'aryacrack' sudah ada, skip download."
+else
+    echo "[*] Mengunduh file pendukung (wordlist)..."
+    curl -L -o aryacrack "https://files.catbox.moe/uavg2u.txt"
+    echo "[*] Unduhan selesai."
+fi
 echo ""
 
 echo "Silakan paste isi data (hash) di bawah ini."
@@ -26,4 +31,3 @@ echo "[*] =============================================="
 echo ""
 
 hashcat -m 22000 target --show | awk -F: '{print NR " " $4 " = " $5}'
-
