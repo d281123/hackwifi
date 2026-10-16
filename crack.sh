@@ -11,8 +11,8 @@ fi
 echo ""
 
 echo "Silakan paste isi data (hash) di bawah ini."
-echo "(PASTE FILE HASH):"
-cat > target
+echo "(PASTE FILE HASH, lalu tekan CTRL+D):"
+cat > target   # selalu timpa file target
 
 echo ""
 echo "[*] Data berhasil disimpan ke dalam file 'target'."
@@ -30,4 +30,4 @@ echo "[*] PROSES SELESAI. MENAMPILKAN HASIL DITEMUKAN:"
 echo "[*] =============================================="
 echo ""
 
-hashcat -m 22000 target --show | awk -F: '{print NR " " $4 " = " $5}'
+hashcat -m 22000 target --show | awk -F: '{print NR ". " $4 " : " ($5 ? $5 : "❌")}'
